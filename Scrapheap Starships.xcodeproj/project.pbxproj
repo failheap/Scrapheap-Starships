@@ -169,6 +169,11 @@
 		E8695C0A16F4BF0800C102E5 /* Scrapheap Starships */ = {
 			isa = PBXGroup;
 			children = (
+				E8695C4116F4BFF000C102E5 /* main.cpp */,
+				E8695C4616F4C8B900C102E5 /* BasicGameEngine.cpp */,
+				E8695C4716F4C8B900C102E5 /* BasicGameEngine.h */,
+				E8695C5216F62EFC00C102E5 /* Projectiles.cpp */,
+				E8695C5316F62EFC00C102E5 /* Projectiles.h */,
 				E8695C4F16F5EB3A00C102E5 /* OurEntity.cpp */,
 				E8695C5016F5EB3A00C102E5 /* OurEntity.h */,
 				E8695C4C16F5EA8B00C102E5 /* OurHero.cpp */,
@@ -176,11 +181,6 @@
 				E8695C4916F4CA2000C102E5 /* GameInterface.cpp */,
 				E8695C4A16F4CA2000C102E5 /* GameInterface.h */,
 				E8695C0B16F4BF0800C102E5 /* Supporting Files */,
-				E8695C4116F4BFF000C102E5 /* main.cpp */,
-				E8695C4616F4C8B900C102E5 /* BasicGameEngine.cpp */,
-				E8695C4716F4C8B900C102E5 /* BasicGameEngine.h */,
-				E8695C5216F62EFC00C102E5 /* Projectiles.cpp */,
-				E8695C5316F62EFC00C102E5 /* Projectiles.h */,
 			);
 			path = "Scrapheap Starships";
 			sourceTree = "<group>";
