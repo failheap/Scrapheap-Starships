@@ -32,12 +32,15 @@
 		E8695C3E16F4BF8D00C102E5 /* AllegroMemfile-5.0.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = E8695C2816F4BF8200C102E5 /* AllegroMemfile-5.0.framework */; };
 		E8695C3F16F4BF8D00C102E5 /* AllegroPrimitives-5.0.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = E8695C2916F4BF8200C102E5 /* AllegroPrimitives-5.0.framework */; };
 		E8695C4016F4BF8D00C102E5 /* AllegroTTF-5.0.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = E8695C2A16F4BF8200C102E5 /* AllegroTTF-5.0.framework */; };
-		E8695C4216F4BFF000C102E5 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E8695C4116F4BFF000C102E5 /* main.cpp */; };
-		E8695C4816F4C8B900C102E5 /* BasicGameEngine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E8695C4616F4C8B900C102E5 /* BasicGameEngine.cpp */; };
-		E8695C4B16F4CA2000C102E5 /* GameInterface.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E8695C4916F4CA2000C102E5 /* GameInterface.cpp */; };
-		E8695C4E16F5EA8B00C102E5 /* OurHero.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E8695C4C16F5EA8B00C102E5 /* OurHero.cpp */; };
-		E8695C5116F5EB3A00C102E5 /* OurEntity.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E8695C4F16F5EB3A00C102E5 /* OurEntity.cpp */; };
-		E8695C5416F62EFC00C102E5 /* Projectiles.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E8695C5216F62EFC00C102E5 /* Projectiles.cpp */; };
+		E8695C6E16F68BF600C102E5 /* BasicGameEngine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E8695C5E16F68BF600C102E5 /* BasicGameEngine.cpp */; };
+		E8695C6F16F68BF600C102E5 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = E8695C6016F68BF600C102E5 /* Credits.rtf */; };
+		E8695C7016F68BF600C102E5 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = E8695C6216F68BF600C102E5 /* InfoPlist.strings */; };
+		E8695C7116F68BF600C102E5 /* GameInterface.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E8695C6416F68BF600C102E5 /* GameInterface.cpp */; };
+		E8695C7216F68BF600C102E5 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E8695C6616F68BF600C102E5 /* main.cpp */; };
+		E8695C7316F68BF600C102E5 /* OurEntity.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E8695C6716F68BF600C102E5 /* OurEntity.cpp */; };
+		E8695C7416F68BF600C102E5 /* OurHero.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E8695C6916F68BF600C102E5 /* OurHero.cpp */; };
+		E8695C7516F68BF600C102E5 /* Projectiles.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E8695C6B16F68BF600C102E5 /* Projectiles.cpp */; };
+		E8695C7616F68BF600C102E5 /* Scrapheap Starships-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E8695C6D16F68BF600C102E5 /* Scrapheap Starships-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -83,17 +86,20 @@
 		E8695C2816F4BF8200C102E5 /* AllegroMemfile-5.0.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "AllegroMemfile-5.0.framework"; path = "/Library/Frameworks/AllegroMemfile-5.0.framework"; sourceTree = "<absolute>"; };
 		E8695C2916F4BF8200C102E5 /* AllegroPrimitives-5.0.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "AllegroPrimitives-5.0.framework"; path = "/Library/Frameworks/AllegroPrimitives-5.0.framework"; sourceTree = "<absolute>"; };
 		E8695C2A16F4BF8200C102E5 /* AllegroTTF-5.0.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "AllegroTTF-5.0.framework"; path = "/Library/Frameworks/AllegroTTF-5.0.framework"; sourceTree = "<absolute>"; };
-		E8695C4116F4BFF000C102E5 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
-		E8695C4616F4C8B900C102E5 /* BasicGameEngine.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BasicGameEngine.cpp; sourceTree = "<group>"; usesTabs = 0; };
-		E8695C4716F4C8B900C102E5 /* BasicGameEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BasicGameEngine.h; sourceTree = "<group>"; };
-		E8695C4916F4CA2000C102E5 /* GameInterface.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GameInterface.cpp; path = ../GameInterface.cpp; sourceTree = "<group>"; };
-		E8695C4A16F4CA2000C102E5 /* GameInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameInterface.h; path = ../GameInterface.h; sourceTree = "<group>"; };
-		E8695C4C16F5EA8B00C102E5 /* OurHero.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = OurHero.cpp; path = ../OurHero.cpp; sourceTree = "<group>"; };
-		E8695C4D16F5EA8B00C102E5 /* OurHero.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OurHero.h; path = ../OurHero.h; sourceTree = "<group>"; };
-		E8695C4F16F5EB3A00C102E5 /* OurEntity.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = OurEntity.cpp; path = ../OurEntity.cpp; sourceTree = "<group>"; };
-		E8695C5016F5EB3A00C102E5 /* OurEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OurEntity.h; path = ../OurEntity.h; sourceTree = "<group>"; };
-		E8695C5216F62EFC00C102E5 /* Projectiles.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Projectiles.cpp; sourceTree = "<group>"; };
-		E8695C5316F62EFC00C102E5 /* Projectiles.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Projectiles.h; sourceTree = "<group>"; };
+		E8695C5E16F68BF600C102E5 /* BasicGameEngine.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BasicGameEngine.cpp; sourceTree = "<group>"; };
+		E8695C5F16F68BF600C102E5 /* BasicGameEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BasicGameEngine.h; sourceTree = "<group>"; };
+		E8695C6116F68BF600C102E5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
+		E8695C6316F68BF600C102E5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		E8695C6416F68BF600C102E5 /* GameInterface.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameInterface.cpp; sourceTree = "<group>"; };
+		E8695C6516F68BF600C102E5 /* GameInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameInterface.h; sourceTree = "<group>"; };
+		E8695C6616F68BF600C102E5 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		E8695C6716F68BF600C102E5 /* OurEntity.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = OurEntity.cpp; sourceTree = "<group>"; };
+		E8695C6816F68BF600C102E5 /* OurEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OurEntity.h; sourceTree = "<group>"; };
+		E8695C6916F68BF600C102E5 /* OurHero.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = OurHero.cpp; sourceTree = "<group>"; };
+		E8695C6A16F68BF600C102E5 /* OurHero.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OurHero.h; sourceTree = "<group>"; };
+		E8695C6B16F68BF600C102E5 /* Projectiles.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Projectiles.cpp; sourceTree = "<group>"; };
+		E8695C6C16F68BF600C102E5 /* Projectiles.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Projectiles.h; sourceTree = "<group>"; };
+		E8695C6D16F68BF600C102E5 /* Scrapheap Starships-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Scrapheap Starships-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -169,17 +175,7 @@
 		E8695C0A16F4BF0800C102E5 /* Scrapheap Starships */ = {
 			isa = PBXGroup;
 			children = (
-				E8695C4116F4BFF000C102E5 /* main.cpp */,
-				E8695C4616F4C8B900C102E5 /* BasicGameEngine.cpp */,
-				E8695C4716F4C8B900C102E5 /* BasicGameEngine.h */,
-				E8695C5216F62EFC00C102E5 /* Projectiles.cpp */,
-				E8695C5316F62EFC00C102E5 /* Projectiles.h */,
-				E8695C4F16F5EB3A00C102E5 /* OurEntity.cpp */,
-				E8695C5016F5EB3A00C102E5 /* OurEntity.h */,
-				E8695C4C16F5EA8B00C102E5 /* OurHero.cpp */,
-				E8695C4D16F5EA8B00C102E5 /* OurHero.h */,
-				E8695C4916F4CA2000C102E5 /* GameInterface.cpp */,
-				E8695C4A16F4CA2000C102E5 /* GameInterface.h */,
+				E8695C5D16F68BF600C102E5 /* Scrapheap Starships */,
 				E8695C0B16F4BF0800C102E5 /* Supporting Files */,
 			);
 			path = "Scrapheap Starships";
@@ -193,6 +189,27 @@
 				E8695C1316F4BF0800C102E5 /* Credits.rtf */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		E8695C5D16F68BF600C102E5 /* Scrapheap Starships */ = {
+			isa = PBXGroup;
+			children = (
+				E8695C5E16F68BF600C102E5 /* BasicGameEngine.cpp */,
+				E8695C5F16F68BF600C102E5 /* BasicGameEngine.h */,
+				E8695C6016F68BF600C102E5 /* Credits.rtf */,
+				E8695C6216F68BF600C102E5 /* InfoPlist.strings */,
+				E8695C6416F68BF600C102E5 /* GameInterface.cpp */,
+				E8695C6516F68BF600C102E5 /* GameInterface.h */,
+				E8695C6616F68BF600C102E5 /* main.cpp */,
+				E8695C6716F68BF600C102E5 /* OurEntity.cpp */,
+				E8695C6816F68BF600C102E5 /* OurEntity.h */,
+				E8695C6916F68BF600C102E5 /* OurHero.cpp */,
+				E8695C6A16F68BF600C102E5 /* OurHero.h */,
+				E8695C6B16F68BF600C102E5 /* Projectiles.cpp */,
+				E8695C6C16F68BF600C102E5 /* Projectiles.h */,
+				E8695C6D16F68BF600C102E5 /* Scrapheap Starships-Info.plist */,
+			);
+			name = "Scrapheap Starships";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -248,6 +265,9 @@
 			files = (
 				E8695C0F16F4BF0800C102E5 /* InfoPlist.strings in Resources */,
 				E8695C1516F4BF0800C102E5 /* Credits.rtf in Resources */,
+				E8695C6F16F68BF600C102E5 /* Credits.rtf in Resources */,
+				E8695C7016F68BF600C102E5 /* InfoPlist.strings in Resources */,
+				E8695C7616F68BF600C102E5 /* Scrapheap Starships-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -258,12 +278,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E8695C4216F4BFF000C102E5 /* main.cpp in Sources */,
-				E8695C4816F4C8B900C102E5 /* BasicGameEngine.cpp in Sources */,
-				E8695C4B16F4CA2000C102E5 /* GameInterface.cpp in Sources */,
-				E8695C4E16F5EA8B00C102E5 /* OurHero.cpp in Sources */,
-				E8695C5116F5EB3A00C102E5 /* OurEntity.cpp in Sources */,
-				E8695C5416F62EFC00C102E5 /* Projectiles.cpp in Sources */,
+				E8695C6E16F68BF600C102E5 /* BasicGameEngine.cpp in Sources */,
+				E8695C7116F68BF600C102E5 /* GameInterface.cpp in Sources */,
+				E8695C7216F68BF600C102E5 /* main.cpp in Sources */,
+				E8695C7316F68BF600C102E5 /* OurEntity.cpp in Sources */,
+				E8695C7416F68BF600C102E5 /* OurHero.cpp in Sources */,
+				E8695C7516F68BF600C102E5 /* Projectiles.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -284,6 +304,22 @@
 				E8695C1416F4BF0800C102E5 /* en */,
 			);
 			name = Credits.rtf;
+			sourceTree = "<group>";
+		};
+		E8695C6016F68BF600C102E5 /* Credits.rtf */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E8695C6116F68BF600C102E5 /* en */,
+			);
+			name = Credits.rtf;
+			sourceTree = "<group>";
+		};
+		E8695C6216F68BF600C102E5 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E8695C6316F68BF600C102E5 /* en */,
+			);
+			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -411,6 +447,7 @@
 				E8695C1E16F4BF0800C102E5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
