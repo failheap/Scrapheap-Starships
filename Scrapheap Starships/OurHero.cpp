@@ -8,7 +8,7 @@
 
 #include "OurHero.h"
 
-#define THRESHOLD 0.001
+#define THRESHOLD 5
 
 OurHero::OurHero(float posX, float posY)
 : OurEntity(posX, posY) {
@@ -77,7 +77,7 @@ void OurHero::updateProjectile(Projectiles projectile[], int size, int boundX, i
             projectile[i].setX(projectile[i].getX() + projectile[i].getSpeed()*cos(projectile_direction));
             projectile[i].setY(projectile[i].getY() + projectile[i].getSpeed()*sin(projectile_direction));
             
-            if( abs(projectile[i].getX() - projectileHeadingX) < THRESHOLD && abs(projectile[i].getY() - projectileHeadingY) < THRESHOLD)
+            if( fabs(projectile[i].getX() - projectileHeadingX) < THRESHOLD && fabs(projectile[i].getY() - projectileHeadingY) < THRESHOLD)
                 projectile[i].setLive(false);
             
             if (projectile[i].getX() > boundX || projectile[i].getY() > boundY)
