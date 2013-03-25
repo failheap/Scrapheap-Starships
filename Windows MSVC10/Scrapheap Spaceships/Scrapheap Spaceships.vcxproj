@@ -70,7 +70,10 @@
     <ClInclude Include="GameInterface.h" />
     <ClInclude Include="OurEntity.h" />
     <ClInclude Include="OurHero.h" />
+    <ClInclude Include="OurMap.h" />
+    <ClInclude Include="OurSolid.h" />
     <ClInclude Include="Projectiles.h" />
+    <ClInclude Include="types.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="BasicGameEngine.cpp" />
@@ -78,6 +81,8 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="OurEntity.cpp" />
     <ClCompile Include="OurHero.cpp" />
+    <ClCompile Include="OurMap.cpp" />
+    <ClCompile Include="OurSolid.cpp" />
     <ClCompile Include="Projectiles.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

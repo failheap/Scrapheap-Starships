@@ -30,6 +30,15 @@
     <ClInclude Include="Projectiles.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="OurMap.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="types.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="OurSolid.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="BasicGameEngine.cpp">
@@ -48,6 +57,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Projectiles.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="OurMap.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="OurSolid.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

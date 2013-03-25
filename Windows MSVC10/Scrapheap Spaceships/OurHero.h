@@ -12,12 +12,14 @@
 #include <math.h>
 #include <allegro5/allegro.h>
 #include <allegro5/allegro_primitives.h>
+#include <allegro5\allegro_image.h>
 #include "OurEntity.h"
 #include "Projectiles.h"
 
 class OurHero : public OurEntity {
 public:
     OurHero(float posX, float posY);
+	~OurHero();
     
     int getHealth(); // Returns health
     void setHealth(int hValue); //Sets value of health
@@ -27,6 +29,10 @@ public:
     
     float getStamina(); // Returns how much stamina the player has left
     void setStamina(float sValue); // Sets player stamina
+
+	// OurHero class gets its own update function, so it can draw custom stuff
+
+	void update();
     
     /*
      
@@ -44,7 +50,10 @@ public:
     void updateProjectile(Projectiles projectile[], int size, int boundX, int boundY);
 
 private:
+	ALLEGRO_BITMAP *heroBitmap;
+
     int health, ammo;
+	int imageWidth, imageHight; // Stores the W/H values of our hero sprite
     float stamina;
 };
 

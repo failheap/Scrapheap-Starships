@@ -13,6 +13,7 @@
 #include <allegro5/allegro.h>
 #include "OurHero.h"
 #include "Projectiles.h"
+#include "OurMap.h"
 
 /* 
  
@@ -36,6 +37,7 @@ public:
 private:
     OurHero *hero; // This is our playable hero :D
     Projectiles Projectile[5]; // Our heroes projectiles (for initialization)
+	OurMap *map; // Map initialization and generation object
     
     enum KEY { UP, DOWN, LEFT, RIGHT, SPACE, SHIFT }; // Holds the values of the current keyboard input
     bool key[6];

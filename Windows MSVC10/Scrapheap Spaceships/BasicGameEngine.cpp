@@ -14,10 +14,10 @@ BasicGameEngine::BasicGameEngine() {
 	}
 	redraw = true;
 
-
-    al_init();                                              // Initialize allegro engine
+    al_init();												// Initialize allegro engine
+	
     done = false;                                           // Initialize program loop state
-    display = al_create_display(640, 480);                  // Initialize display
+    display = al_create_display(1024, 800);                  // Initialize display
     getDisplayResolution();                                 // Get users max resolution
     // al_resize_display(display, displayResX, displayResY);   // Resize window to fit users max resolution
     
@@ -39,6 +39,8 @@ BasicGameEngine::BasicGameEngine() {
 
 BasicGameEngine::~BasicGameEngine() {
     delete hero;
+	al_destroy_timer(timer);
+	al_destroy_event_queue(eQueue);
     al_destroy_display(display);
 }
 
@@ -84,6 +86,10 @@ void BasicGameEngine::start() {
     // Maximum speed player can move (value = pixel pr. second)
     
     hero->setSpeed(1);
+
+	// Generate our map
+
+	map = new OurMap(10,10);
     
     // Initiate main game loop
     
@@ -185,6 +191,10 @@ void BasicGameEngine::start() {
         
         if (redraw && al_event_queue_is_empty(eQueue)) {
             redraw = false;
+
+			// redraw map sprites
+
+			map->draw();
             
             // Update player position
             
@@ -197,7 +207,10 @@ void BasicGameEngine::start() {
             
             al_flip_display();
             al_clear_to_color(al_map_rgb(0, 0, 0));
+
         }
 
     }
+
+	delete map;
 }

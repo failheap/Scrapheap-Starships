@@ -15,6 +15,24 @@ OurHero::OurHero(float posX, float posY)
     health = 100;
     ammo = 300;
     stamina = 1000;
+
+	al_init_image_addon();		// Initialize the Allegro graphics library
+
+	// Load the hero sprite and its dimensions
+
+	heroBitmap = al_load_bitmap("hero.png");
+	imageWidth = al_get_bitmap_width(heroBitmap);
+	imageHight = al_get_bitmap_height(heroBitmap);
+}
+
+void OurHero::update() {
+	float posX = OurEntity::getPosX(); // Get private data of derived class OurEntity's position X
+	float posY = OurEntity::getPosY(); // get private data of derived class OurEntity's position Y
+	al_draw_bitmap(heroBitmap, posX, posY, 0); // Update hero's position with OurEntity's position
+}
+
+OurHero::~OurHero() {
+	al_destroy_bitmap(heroBitmap);
 }
 
 int OurHero::getHealth() {
