@@ -41,3 +41,11 @@ void OurEntity::setSpeed(int sVal) {
 int OurEntity::getSpeed() {
     return speed;
 }
+
+float OurEntity::getAngle() {
+	return angle;
+}
+
+void OurEntity::setAngle(float degree) {
+	angle = degree;
+}

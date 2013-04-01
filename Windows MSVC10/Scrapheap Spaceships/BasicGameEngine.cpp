@@ -12,12 +12,16 @@ BasicGameEngine::BasicGameEngine() {
 	for (int i = 0; i < 6; i++) {
 		key[i] = false;
 	}
+
+	screenW = 1024;
+	screenH = 600;
+
 	redraw = true;
 
     al_init();												// Initialize allegro engine
 	
     done = false;                                           // Initialize program loop state
-    display = al_create_display(1024, 800);                  // Initialize display
+    display = al_create_display(screenW, screenH);          // Initialize display
     getDisplayResolution();                                 // Get users max resolution
     // al_resize_display(display, displayResX, displayResY);   // Resize window to fit users max resolution
     
@@ -85,7 +89,7 @@ void BasicGameEngine::start() {
     
     // Maximum speed player can move (value = pixel pr. second)
     
-    hero->setSpeed(1);
+    hero->setSpeed(3);
 
 	// Generate our map
 
@@ -106,15 +110,19 @@ void BasicGameEngine::start() {
             switch (ev.keyboard.keycode) {
                 case ALLEGRO_KEY_W:
                     key[UP] = true;
+					cameraUpdate = true;
                     break;
                 case ALLEGRO_KEY_S:
                     key[DOWN] = true;
+					cameraUpdate = true;
                     break;
                 case ALLEGRO_KEY_D:
                     key[RIGHT] = true;
+					cameraUpdate = true;
                     break;
                 case ALLEGRO_KEY_A:
                     key[LEFT] = true;
+					cameraUpdate = true;
                     break;
                 case ALLEGRO_KEY_SPACE:
                     hero->fireProjectile(Projectile, 5, mouseAxesX, mouseAxesY);
@@ -131,15 +139,19 @@ void BasicGameEngine::start() {
             switch(ev.keyboard.keycode) {
                 case ALLEGRO_KEY_W:
                     key[UP] = false;
+					cameraUpdate = false;
                     break;
                 case ALLEGRO_KEY_S:
                     key[DOWN] = false;
+					cameraUpdate = false;
                     break;
                 case ALLEGRO_KEY_D:
                     key[RIGHT] = false;
+					cameraUpdate = false;
                     break;
                 case ALLEGRO_KEY_A:
                     key[LEFT] = false;
+					cameraUpdate = false;
                     break;
                 case ALLEGRO_KEY_SPACE:
                     key[SPACE] = false;
@@ -164,10 +176,10 @@ void BasicGameEngine::start() {
             // is not running
             
             if (key[SHIFT] && hero->getStamina() > 0) {
-                pos_y -= key[UP] * (hero->getSpeed() + 2);
-                pos_y += key[DOWN] * (hero->getSpeed() + 2);
-                pos_x -= key[LEFT] * (hero->getSpeed() + 2);
-                pos_x += key[RIGHT] * (hero->getSpeed() + 2);
+                pos_y -= key[UP] * (hero->getSpeed() + 4);
+                pos_y += key[DOWN] * (hero->getSpeed() + 4);
+                pos_x -= key[LEFT] * (hero->getSpeed() + 4);
+                pos_x += key[RIGHT] * (hero->getSpeed() + 4);
                 hero->setStamina(hero->getStamina() - 1);
                 
             } else {
@@ -200,7 +212,26 @@ void BasicGameEngine::start() {
             
             hero->setPosX(pos_x);
             hero->setPosY(pos_y);
+			hero->setAngle(atan2(float(mouseAxesY - pos_y),float(mouseAxesX - pos_x))); // Radiens = arc tangent of mouseAxesX/Y - Player positionX/Y
+																						// Set angle for player rotation on hero->update()
             hero->update();
+
+			// Update camera position
+
+			map->setOffsetX(0);
+			map->setOffsetY(0);
+
+			map->setOffsetX(map->getOffsetX() - (screenW / 2) + (pos_x + hero->getPBitmapWidth() / 2));
+			map->setOffsetY(map->getOffsetY() - (screenH / 2) + (pos_y + hero->getPBitmapHeight() / 2));
+
+			if (map->getOffsetX() < 0)
+				map->setOffsetX(0);
+			if (map->getOffsetY() < 0)
+				map->setOffsetY(0);
+
+			al_identity_transform(&camera);
+			al_translate_transform(&camera, -map->getOffsetX(), -map->getOffsetY());
+			al_use_transform(&camera);
             
             // Draw projectiles if projectiles are fired
             hero->drawProjectile(Projectile, 5);

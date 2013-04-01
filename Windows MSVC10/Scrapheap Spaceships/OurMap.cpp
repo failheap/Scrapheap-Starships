@@ -17,6 +17,9 @@ OurMap::OurMap(int height, int width) {
 	mapHeight = height;
 	mapWidth = width;
 
+	xOffset = 0;
+	yOffset = 0;
+
 	al_init_image_addon();
 	al_init_primitives_addon();
 	
@@ -51,19 +54,19 @@ void OurMap::draw() {
 	}
 }
 
-int OurMap::getOffsetX() {
+float OurMap::getOffsetX() {
 	return xOffset;
 }
 
-int OurMap::getOffsetY() {
+float OurMap::getOffsetY() {
 	return yOffset;
 }
 
-void OurMap::setOffsetX(int offset) {
+void OurMap::setOffsetX(float offset) {
 	xOffset = offset;
 }
 
-void OurMap::setOffsetY(int offset) {
+void OurMap::setOffsetY(float offset) {
 	yOffset = offset;
 }
 

@@ -16,5 +16,5 @@ OurSolid::~OurSolid() {
 }
 
 void OurSolid::drawSolid() {
-	al_draw_bitmap(solidGraph, xPos, yPos, 0);
+	al_draw_bitmap(solidGraph, xPos, yPos, ALLEGRO_VIDEO_BITMAP);  // Enable hardware acceleration for these solids
 }

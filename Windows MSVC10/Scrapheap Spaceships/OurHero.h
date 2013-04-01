@@ -49,6 +49,15 @@ public:
     void fireProjectile(Projectiles projectile[], int size, int mPosX, int mPosY);
     void updateProjectile(Projectiles projectile[], int size, int boundX, int boundY);
 
+	/*
+
+	Get player image width and height
+
+	*/
+
+	int getPBitmapHeight();
+	int getPBitmapWidth();
+
 private:
 	ALLEGRO_BITMAP *heroBitmap;
 

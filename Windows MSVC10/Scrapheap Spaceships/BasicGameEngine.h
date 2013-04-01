@@ -42,12 +42,14 @@ private:
     enum KEY { UP, DOWN, LEFT, RIGHT, SPACE, SHIFT }; // Holds the values of the current keyboard input
     bool key[6];
     
-    bool redraw;
+    bool redraw, cameraUpdate;
     
     int displayResY, displayResX; // Maximum users monitor resolution
     static const int framesPerSecond = 60;   // Maximum frames per second the game is going to run in
     
     int mouseAxesY, mouseAxesX; // Position of the cursor
+
+	int screenW, screenH; // Screen width + height
     
     void getDisplayResolution(); // Get users max resolution
     
@@ -55,6 +57,7 @@ private:
     ALLEGRO_EVENT_QUEUE *eQueue;
     ALLEGRO_EVENT *event;
     ALLEGRO_TIMER *timer;
+	ALLEGRO_TRANSFORM camera;
 };
 
 #endif /* defined(__Scrapheap_Starships__BasicGameEngine__) */

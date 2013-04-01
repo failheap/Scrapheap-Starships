@@ -28,7 +28,11 @@ OurHero::OurHero(float posX, float posY)
 void OurHero::update() {
 	float posX = OurEntity::getPosX(); // Get private data of derived class OurEntity's position X
 	float posY = OurEntity::getPosY(); // get private data of derived class OurEntity's position Y
-	al_draw_bitmap(heroBitmap, posX, posY, 0); // Update hero's position with OurEntity's position
+	// al_draw_bitmap(heroBitmap, posX, posY, ALLEGRO_VIDEO_BITMAP);	
+																	
+	al_draw_rotated_bitmap(heroBitmap, al_get_bitmap_width(heroBitmap) / 2, al_get_bitmap_height(heroBitmap) / 2, posX, posY,
+		OurEntity::getAngle(), ALLEGRO_VIDEO_BITMAP);	// Update hero's position with OurEntity's position
+														// Enable hardware acceleration for this sprite
 }
 
 OurHero::~OurHero() {
@@ -105,4 +109,12 @@ void OurHero::updateProjectile(Projectiles projectile[], int size, int boundX, i
             
         }
     }
+}
+
+int OurHero::getPBitmapHeight() {
+	return al_get_bitmap_width(heroBitmap);
+}
+
+int OurHero::getPBitmapWidth() {
+	return al_get_bitmap_height(heroBitmap);
 }

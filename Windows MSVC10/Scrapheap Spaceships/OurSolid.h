@@ -28,7 +28,7 @@
 
 class OurSolid : public OurEntity {
 public:
-	OurSolid(float posX, float posY, const char *bitmap);
+	OurSolid(float posX, float posY, const	char *bitmap);
 	~OurSolid();
 
 	void drawSolid();

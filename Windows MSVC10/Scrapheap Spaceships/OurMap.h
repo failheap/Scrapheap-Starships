@@ -38,10 +38,10 @@ public:
 
 	// Setters and getters for map offset values
 
-	int getOffsetX();
-	int getOffsetY();
-	void setOffsetX(int offset);
-	void setOffsetY(int offset);
+	float getOffsetX();
+	float getOffsetY();
+	void setOffsetX(float offset);
+	void setOffsetY(float offset);
 
 	void draw();	// Draws the map
 private:
@@ -76,7 +76,7 @@ private:
 
 	TwoDimIntegerVector map; // This vector contains all the numbers which represent tiles
 
-	int xOffset, yOffset; // Where the camera is at the map
+	float xOffset, yOffset; // Where the camera is at the map
 
 	int mapColumns;
 	int mapSize;
