@@ -10,6 +10,9 @@
 #define __Scrapheap_Starships__BasicGameEngine__
 
 #include <math.h>
+#include <stdio.h>
+#include <iostream>
+#include <string>
 #include <allegro5/allegro.h>
 #include "OurHero.h"
 #include "Projectiles.h"
@@ -33,6 +36,27 @@ public:
     void start(); // Start the game loop
     
     bool done; // Program loop state
+
+	/*
+		Debug function: outputs value in console
+		window
+	*/
+
+	void engineDebug(int dVal) {
+		std::cout <<dVal;
+	}
+
+	void engineDebug(float dVal) {
+		std::cout <<dVal;
+	}
+
+	void engineDebug(char dVal) {
+		std::cout <<dVal;
+	}
+
+	void engineDebug(std::string dVal) {
+		std::cout <<dVal;
+	}
     
 private:
     OurHero *hero; // This is our playable hero :D
@@ -42,14 +66,18 @@ private:
     enum KEY { UP, DOWN, LEFT, RIGHT, SPACE, SHIFT }; // Holds the values of the current keyboard input
     bool key[6];
     
-    bool redraw, cameraUpdate;
+    bool redraw;
     
     int displayResY, displayResX; // Maximum users monitor resolution
     static const int framesPerSecond = 60;   // Maximum frames per second the game is going to run in
     
-    int mouseAxesY, mouseAxesX; // Position of the cursor
+    float mouseAxesY, mouseAxesX; // Position of the cursor & its pointers
+	float *mouseAxesY_p, *mouseAxesX_p;
 
 	int screenW, screenH; // Screen width + height
+
+	float playerPositionX, playerPositionY;	// values & pointers to players X/Y position in the gameworld
+	float *playerPositionX_p, *playerPositionY_p; 
     
     void getDisplayResolution(); // Get users max resolution
     

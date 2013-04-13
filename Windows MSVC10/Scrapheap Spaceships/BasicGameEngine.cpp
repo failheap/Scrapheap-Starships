@@ -36,6 +36,19 @@ BasicGameEngine::BasicGameEngine() {
     al_register_event_source(eQueue, al_get_mouse_event_source());  // Register mouse movement and input into the event queue
     al_register_event_source(eQueue, al_get_display_event_source(display)); // Register events from the display
     al_register_event_source(eQueue, al_get_timer_event_source(timer)); // Lets the timer register events
+
+	// Initialize special pointers for world coordinate calculations
+
+	mouseAxesX_p = &mouseAxesX;
+	mouseAxesY_p = &mouseAxesY;
+
+	playerPositionX_p = &playerPositionX;
+	playerPositionY_p = &playerPositionY;
+
+	// Set starting coordinates for player
+
+	*playerPositionX_p = 50;
+	*playerPositionY_p = 50;
     
 }
 
@@ -76,17 +89,17 @@ void BasicGameEngine::wait(double seconds) {
 void BasicGameEngine::start() {
     
     al_start_timer(timer); // Start timer. This operates at the industry standard 60 FPS, see constructor
-    hero = new OurHero(50, 50);
+	hero = new OurHero(*playerPositionX_p, *playerPositionY_p);
     
     // Initialize 5 projectiles for our hero
      
     hero->initProjectile(Projectile, 5);
     
     // Get X/Y position of player
-    
-    float pos_y = hero->getPosY();
-    float pos_x = hero->getPosX();
-    
+
+	*playerPositionX_p = hero->getPosX();
+	*playerPositionY_p = hero->getPosY();
+
     // Maximum speed player can move (value = pixel pr. second)
     
     hero->setSpeed(3);
@@ -102,27 +115,23 @@ void BasicGameEngine::start() {
         al_wait_for_event(eQueue, &ev);
         
         if (ev.type == ALLEGRO_EVENT_MOUSE_AXES) {
-            mouseAxesX = ev.mouse.x;
-            mouseAxesY = ev.mouse.y;
+			*mouseAxesX_p = ev.mouse.x;
+			*mouseAxesY_p = ev.mouse.y;
         }
         
         if (ev.type == ALLEGRO_EVENT_KEY_DOWN) {
             switch (ev.keyboard.keycode) {
                 case ALLEGRO_KEY_W:
                     key[UP] = true;
-					cameraUpdate = true;
                     break;
                 case ALLEGRO_KEY_S:
                     key[DOWN] = true;
-					cameraUpdate = true;
                     break;
                 case ALLEGRO_KEY_D:
                     key[RIGHT] = true;
-					cameraUpdate = true;
                     break;
                 case ALLEGRO_KEY_A:
                     key[LEFT] = true;
-					cameraUpdate = true;
                     break;
                 case ALLEGRO_KEY_SPACE:
                     hero->fireProjectile(Projectile, 5, mouseAxesX, mouseAxesY);
@@ -139,19 +148,15 @@ void BasicGameEngine::start() {
             switch(ev.keyboard.keycode) {
                 case ALLEGRO_KEY_W:
                     key[UP] = false;
-					cameraUpdate = false;
                     break;
                 case ALLEGRO_KEY_S:
                     key[DOWN] = false;
-					cameraUpdate = false;
                     break;
                 case ALLEGRO_KEY_D:
                     key[RIGHT] = false;
-					cameraUpdate = false;
                     break;
                 case ALLEGRO_KEY_A:
                     key[LEFT] = false;
-					cameraUpdate = false;
                     break;
                 case ALLEGRO_KEY_SPACE:
                     key[SPACE] = false;
@@ -170,23 +175,23 @@ void BasicGameEngine::start() {
             done = true;
         } else if (ev.type == ALLEGRO_EVENT_TIMER) {
             
-            // If player holds shift, increse speed by 2 pixels/s
+            // If player holds shift, increse speed by 4 pixels/s
             // this simulates run, but will drain players stamina
             // stamina will regenerate at 30% / s when the player
             // is not running
             
             if (key[SHIFT] && hero->getStamina() > 0) {
-                pos_y -= key[UP] * (hero->getSpeed() + 4);
-                pos_y += key[DOWN] * (hero->getSpeed() + 4);
-                pos_x -= key[LEFT] * (hero->getSpeed() + 4);
-                pos_x += key[RIGHT] * (hero->getSpeed() + 4);
+				*playerPositionY_p -= key[UP] * (hero->getSpeed() + 4);
+				*playerPositionY_p += key[DOWN] * (hero->getSpeed() + 4);
+				*playerPositionX_p -= key[LEFT] * (hero->getSpeed() + 4);
+				*playerPositionX_p += key[RIGHT] * (hero->getSpeed() + 4);
                 hero->setStamina(hero->getStamina() - 1);
                 
             } else {
-                pos_y -= key[UP] * hero->getSpeed();
-                pos_y += key[DOWN] * hero->getSpeed();
-                pos_x -= key[LEFT] * hero->getSpeed();
-                pos_x += key[RIGHT] * hero->getSpeed();
+                *playerPositionY_p -= key[UP] * hero->getSpeed();
+                *playerPositionY_p += key[DOWN] * hero->getSpeed();
+                *playerPositionX_p -= key[LEFT] * hero->getSpeed();
+                *playerPositionX_p += key[RIGHT] * hero->getSpeed();
             }
             
             if (!key[SHIFT] && hero->getStamina() < 1000)
@@ -207,31 +212,41 @@ void BasicGameEngine::start() {
 			// redraw map sprites
 
 			map->draw();
-            
-            // Update player position
-            
-            hero->setPosX(pos_x);
-            hero->setPosY(pos_y);
-			hero->setAngle(atan2(float(mouseAxesY - pos_y),float(mouseAxesX - pos_x))); // Radiens = arc tangent of mouseAxesX/Y - Player positionX/Y
-																						// Set angle for player rotation on hero->update()
-            hero->update();
 
 			// Update camera position
 
 			map->setOffsetX(0);
 			map->setOffsetY(0);
 
-			map->setOffsetX(map->getOffsetX() - (screenW / 2) + (pos_x + hero->getPBitmapWidth() / 2));
-			map->setOffsetY(map->getOffsetY() - (screenH / 2) + (pos_y + hero->getPBitmapHeight() / 2));
+			al_use_transform(&camera);
+			
+			map->setOffsetX(map->getOffsetX() - (screenW / 2) + (*playerPositionX_p + hero->getPBitmapWidth() / 2));
+			map->setOffsetY(map->getOffsetY() - (screenH / 2) + (*playerPositionY_p + hero->getPBitmapHeight() / 2));
 
 			if (map->getOffsetX() < 0)
 				map->setOffsetX(0);
 			if (map->getOffsetY() < 0)
 				map->setOffsetY(0);
 
+			// Initialize and transform all coordinates and bitmaps to coincide with camera
+
 			al_identity_transform(&camera);
 			al_translate_transform(&camera, -map->getOffsetX(), -map->getOffsetY());
 			al_use_transform(&camera);
+			
+
+			// Set player rotation and update it on the map
+
+			hero->setAngle(atan2(float(*mouseAxesY_p - *playerPositionY_p + map->getOffsetY()),
+				float(*mouseAxesX_p - *playerPositionX_p + map->getOffsetX())));	// Radians = arc tangent of mouseAxesX/Y - Player positionX/Y + map offset X/Y
+																					// Set angle for player rotation on hero->update()
+
+			// Update player position
+            
+			hero->setPosX(*playerPositionX_p);
+			hero->setPosY(*playerPositionY_p);
+
+            hero->update();
             
             // Draw projectiles if projectiles are fired
             hero->drawProjectile(Projectile, 5);
