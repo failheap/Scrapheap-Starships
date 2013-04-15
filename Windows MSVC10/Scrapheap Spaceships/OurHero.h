@@ -13,6 +13,9 @@
 #include <allegro5/allegro.h>
 #include <allegro5/allegro_primitives.h>
 #include <allegro5\allegro_image.h>
+#include <gl\GL.h>
+#include <gl\GLU.h>
+#include <gl\glut.h>
 #include "OurEntity.h"
 #include "Projectiles.h"
 
@@ -60,6 +63,9 @@ public:
 
 private:
 	ALLEGRO_BITMAP *heroBitmap;
+
+	// Update lighting properties bound with hero
+	void updateHeroLights();
 
     int health, ammo;
 	int imageWidth, imageHight; // Stores the W/H values of our hero sprite

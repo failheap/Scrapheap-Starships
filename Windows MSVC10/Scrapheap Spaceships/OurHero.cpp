@@ -23,16 +23,29 @@ OurHero::OurHero(float posX, float posY)
 	heroBitmap = al_load_bitmap("hero.png");
 	imageWidth = al_get_bitmap_width(heroBitmap);
 	imageHight = al_get_bitmap_height(heroBitmap);
+
+	glEnable(GL_LIGHT0); // Enable lighting for our hero and set GL light ID to GL_LIGHT0
 }
 
 void OurHero::update() {
 	float posX = OurEntity::getPosX(); // Get private data of derived class OurEntity's position X
 	float posY = OurEntity::getPosY(); // get private data of derived class OurEntity's position Y
-	// al_draw_bitmap(heroBitmap, posX, posY, ALLEGRO_VIDEO_BITMAP);	
 																	
 	al_draw_rotated_bitmap(heroBitmap, al_get_bitmap_width(heroBitmap) / 2, al_get_bitmap_height(heroBitmap) / 2, posX, posY,
 		OurEntity::getAngle(), ALLEGRO_VIDEO_BITMAP);	// Update hero's position with OurEntity's position
 														// Enable hardware acceleration for this sprite
+	updateHeroLights(); // Move hero light to hero position (so light follows our hero)
+}
+
+void OurHero::updateHeroLights() {
+	float lPositionValues[] = {OurEntity::getPosX(), OurEntity::getPosY(), 100, 1.0};
+	glLightfv(GL_LIGHT0, GL_POSITION, lPositionValues);
+
+	float lDiffusionValues[] = {1.0, 1.0, 1.0, 1.0};
+	glLightfv(GL_LIGHT0, GL_DIFFUSE, lDiffusionValues);
+
+	float lAmbientValues[] = {0.0, 0.0, 0.0, 0.0};
+	glLightfv(GL_LIGHT0, GL_AMBIENT, lAmbientValues);
 }
 
 OurHero::~OurHero() {

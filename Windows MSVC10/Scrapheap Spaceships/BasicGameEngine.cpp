@@ -21,6 +21,9 @@ BasicGameEngine::BasicGameEngine() {
     al_init();												// Initialize allegro engine
 	
     done = false;                                           // Initialize program loop state
+	
+	al_set_new_display_flags(ALLEGRO_OPENGL);
+	
     display = al_create_display(screenW, screenH);          // Initialize display
     getDisplayResolution();                                 // Get users max resolution
     // al_resize_display(display, displayResX, displayResY);   // Resize window to fit users max resolution
@@ -49,7 +52,10 @@ BasicGameEngine::BasicGameEngine() {
 
 	*playerPositionX_p = 50;
 	*playerPositionY_p = 50;
-    
+
+	// Enable lighting for GL scene
+	glEnable(GL_LIGHTING);
+
 }
 
 // Deconstructor
@@ -210,7 +216,6 @@ void BasicGameEngine::start() {
             redraw = false;
 
 			// redraw map sprites
-
 			map->draw();
 
 			// Update camera position

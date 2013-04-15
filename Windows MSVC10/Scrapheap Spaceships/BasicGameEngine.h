@@ -14,6 +14,10 @@
 #include <iostream>
 #include <string>
 #include <allegro5/allegro.h>
+#include <allegro5\allegro_opengl.h>
+#include <gl\GL.h>
+#include <gl\GLU.h>
+#include <gl\glut.h>
 #include "OurHero.h"
 #include "Projectiles.h"
 #include "OurMap.h"
